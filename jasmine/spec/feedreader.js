@@ -117,4 +117,31 @@ $(function() {
 
     });
 
+    /*
+     * @author Luca Ricci
+     * I was asked to:
+     * Write a new test suite named "New Feed Selection"
+     */
+    describe('New Feed Selection', function() {
+        var oldHTML;
+
+        /*
+         * @author Luca Ricci
+         * I was asked to:
+         * Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         */
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                oldHTML = $('.feed').html();
+                loadFeed(1, done);
+            });
+        });
+
+        it('actually change the content', function() {
+            var newHTML = $('.feed').html();
+
+            expect(oldHTML).not.toEqual(newHTML);
+        });
+    });
 }());
