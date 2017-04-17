@@ -92,4 +92,29 @@ $(function() {
 
     });
 
+
+    /*
+     * @author Luca Ricci
+     * I was asked to:
+     * Write a new test suite named "Initial Entries"
+     */
+    describe('Initial Entries', function() {
+        /*
+         * @author Luca Ricci
+         * I was asked to:
+         * Write a test that ensures when the loadFeed
+         * function is called and completes its work, there is at least
+         * a single .entry element within the .feed container.
+         */
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+
+        it('should have at least one .entry element in .feed container', function(done) {
+            expect($('.feed').find('.entry').length).toBeGreaterThan(0);
+            done();
+        });
+
+    });
+
 }());
