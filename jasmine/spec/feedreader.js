@@ -57,4 +57,39 @@ $(function() {
         });
     });
 
+
+    /**
+     * @author Luca Ricci
+     * I was asked to:
+     * Write a new test suite named "The menu"
+     */
+    describe('The menu', function() {
+        /*
+         * @author Luca Ricci
+         * I was asked to:
+         * Write a test that ensures the menu element is
+         * hidden by default.
+         */
+        it('element is hidden by default', function() {
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
+        });
+
+        /*
+         * @author Luca Ricci
+         * I was asked to:
+         * Write a test that ensures the menu changes
+         * visibility when the menu icon is clicked.
+         * We test if the menu display when clicked
+         * and it hide when clicked again.
+         */
+        it('should change visibility when menu icon is clicked', function() {
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBeFalsy();
+
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBeTruthy();
+        });
+
+    });
+
 }());
